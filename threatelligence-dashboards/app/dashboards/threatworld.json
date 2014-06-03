@@ -1,0 +1,327 @@
+{
+  "title": "World Map Threatelligence",
+  "services": {
+    "query": {
+      "list": {
+        "0": {
+          "id": 0,
+          "color": "#7EB26D",
+          "alias": "Malicious Ips",
+          "pin": true,
+          "type": "lucene",
+          "enable": true,
+          "query": "malicious_ip"
+        },
+        "1": {
+          "id": 1,
+          "color": "#EAB839",
+          "alias": "BotNet",
+          "pin": true,
+          "type": "lucene",
+          "enable": true,
+          "query": "botnet"
+        },
+        "2": {
+          "id": 2,
+          "color": "#6ED0E0",
+          "alias": "Scanning IPs",
+          "pin": true,
+          "type": "lucene",
+          "enable": true,
+          "query": "scanning"
+        },
+        "3": {
+          "id": 3,
+          "color": "#EF843C",
+          "alias": "Malware Distribution",
+          "pin": true,
+          "type": "lucene",
+          "enable": true,
+          "query": "malware_distribution"
+        },
+        "4": {
+          "id": 4,
+          "color": "#E24D42",
+          "alias": "",
+          "pin": false,
+          "type": "lucene",
+          "enable": true,
+          "query": "*"
+        }
+      },
+      "ids": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "filter": {
+      "list": {},
+      "ids": []
+    }
+  },
+  "rows": [
+    {
+      "title": "World Map",
+      "height": "450px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "error": false,
+          "span": 12,
+          "editable": true,
+          "type": "map",
+          "loadingEditor": false,
+          "map": "world",
+          "colors": [
+            "#A0E2E2",
+            "#265656"
+          ],
+          "size": 300,
+          "exclude": [],
+          "spyable": true,
+          "queries": {
+            "mode": "unpinned",
+            "ids": [
+              4
+            ]
+          },
+          "title": "Global Threat",
+          "field": "country_code"
+        }
+      ],
+      "notice": false
+    },
+    {
+      "title": "Table Info",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "map",
+          "loadingEditor": false,
+          "map": "world",
+          "colors": [
+            "#A0E2E2",
+            "#265656"
+          ],
+          "size": 300,
+          "exclude": [],
+          "spyable": true,
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              1
+            ]
+          },
+          "title": "Botnet IPs",
+          "field": "country_code"
+        },
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "map",
+          "loadingEditor": false,
+          "map": "world",
+          "colors": [
+            "#A0E2E2",
+            "#265656"
+          ],
+          "size": 100,
+          "exclude": [],
+          "spyable": true,
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              0
+            ]
+          },
+          "title": "Malicious IPs",
+          "field": "country_code"
+        },
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "map",
+          "loadingEditor": false,
+          "map": "world",
+          "colors": [
+            "#A0E2E2",
+            "#265656"
+          ],
+          "size": 100,
+          "exclude": [],
+          "spyable": true,
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              3
+            ]
+          },
+          "title": "Malware Distrubtion",
+          "field": "country_code"
+        }
+      ],
+      "notice": false
+    },
+    {
+      "title": "",
+      "height": "150px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "error": false,
+          "span": 12,
+          "editable": true,
+          "type": "table",
+          "loadingEditor": false,
+          "size": 100,
+          "pages": 5,
+          "offset": 0,
+          "sort": [
+            "_score",
+            "desc"
+          ],
+          "overflow": "min-height",
+          "fields": [
+            "source",
+            "source_info",
+            "severity",
+            "country",
+            "country_code",
+            "data_type",
+            "feed_src"
+          ],
+          "highlight": [],
+          "sortable": true,
+          "header": true,
+          "paging": true,
+          "field_list": false,
+          "all_fields": false,
+          "trimFactor": 300,
+          "localTime": false,
+          "timeField": "@timestamp",
+          "spyable": true,
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "style": {
+            "font-size": "9pt"
+          },
+          "normTimes": true
+        }
+      ],
+      "notice": false
+    }
+  ],
+  "editable": true,
+  "failover": false,
+  "index": {
+    "interval": "none",
+    "pattern": "[logstash-]YYYY.MM.DD",
+    "default": "_all",
+    "warm_fields": false
+  },
+  "style": "light",
+  "panel_hints": true,
+  "pulldowns": [
+    {
+      "type": "query",
+      "collapse": false,
+      "notice": false,
+      "enable": true,
+      "query": "*",
+      "pinned": true,
+      "history": [
+        "*",
+        "malware_distribution",
+        "scanning",
+        "botnet",
+        "malicious_ip",
+        "US",
+        "ES",
+        "spain",
+        "malware_domain",
+        "APT"
+      ],
+      "remember": 10
+    },
+    {
+      "type": "filtering",
+      "collapse": false,
+      "notice": true,
+      "enable": true
+    }
+  ],
+  "nav": [
+    {
+      "type": "timepicker",
+      "collapse": false,
+      "notice": false,
+      "enable": true,
+      "status": "Stable",
+      "time_options": [
+        "5m",
+        "15m",
+        "1h",
+        "6h",
+        "12h",
+        "24h",
+        "2d",
+        "7d",
+        "30d"
+      ],
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "timefield": "@timestamp",
+      "now": true,
+      "filter_id": 0
+    }
+  ],
+  "loader": {
+    "save_gist": false,
+    "save_elasticsearch": true,
+    "save_local": true,
+    "save_default": true,
+    "save_temp": true,
+    "save_temp_ttl_enable": true,
+    "save_temp_ttl": "30d",
+    "load_gist": false,
+    "load_elasticsearch": true,
+    "load_elasticsearch_size": 20,
+    "load_local": false,
+    "hide": false
+  },
+  "refresh": false
+}
+

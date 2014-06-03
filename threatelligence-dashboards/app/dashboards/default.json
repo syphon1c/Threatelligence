@@ -1,0 +1,313 @@
+{
+  "title": "Default Threatelligence Dashboard",
+  "services": {
+    "query": {
+      "list": {
+        "0": {
+          "query": "*",
+          "alias": "",
+          "color": "#7EB26D",
+          "id": 0,
+          "pin": false,
+          "type": "lucene",
+          "enable": true
+        }
+      },
+      "ids": [
+        0
+      ]
+    },
+    "filter": {
+      "list": {},
+      "ids": []
+    }
+  },
+  "rows": [
+    {
+      "title": "Information",
+      "height": "150px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "text",
+          "loadingEditor": false,
+          "mode": "markdown",
+          "content": "The data in this dashboard displays the categories of threat intelligence data collected. These categories can be used in search terms or when selected as an action, added as a filter.",
+          "style": {},
+          "title": "Information"
+        },
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "text",
+          "loadingEditor": false,
+          "mode": "markdown",
+          "content": "You can find a world map dashboard here: \n\n[World Map Threat Data](index.html#/dashboard/file/threatworld.json)",
+          "style": {},
+          "title": "World Map Threats"
+        },
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "text",
+          "loadingEditor": false,
+          "mode": "markdown",
+          "content": "Click here if you want to start creating your own threatelligence dashboards via Kibana: [Blank Dashboard](index.html#/dashboard/file/blank.json)",
+          "style": {},
+          "title": "Create your own Dashboards"
+        }
+      ],
+      "notice": false
+    },
+    {
+      "title": "Threat Categories",
+      "height": "300px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "error": false,
+          "span": 2,
+          "editable": true,
+          "type": "terms",
+          "loadingEditor": false,
+          "field": "_type",
+          "exclude": [],
+          "missing": false,
+          "other": false,
+          "size": 300,
+          "order": "count",
+          "style": {
+            "font-size": "10pt"
+          },
+          "donut": false,
+          "tilt": false,
+          "labels": true,
+          "arrangement": "horizontal",
+          "chart": "pie",
+          "counter_pos": "none",
+          "spyable": true,
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ]
+          },
+          "tmode": "terms",
+          "tstat": "total",
+          "valuefield": "",
+          "title": "Threat Pie"
+        },
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "terms",
+          "loadingEditor": false,
+          "field": "_type",
+          "exclude": [],
+          "missing": false,
+          "other": false,
+          "size": 10,
+          "order": "count",
+          "style": {
+            "font-size": "10pt"
+          },
+          "donut": false,
+          "tilt": false,
+          "labels": true,
+          "arrangement": "horizontal",
+          "chart": "table",
+          "counter_pos": "above",
+          "spyable": true,
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ]
+          },
+          "tmode": "terms",
+          "tstat": "total",
+          "valuefield": "",
+          "title": "Threat Categories"
+        },
+        {
+          "error": false,
+          "span": 6,
+          "editable": true,
+          "type": "terms",
+          "loadingEditor": false,
+          "field": "country_code",
+          "exclude": [],
+          "missing": false,
+          "other": true,
+          "size": 15,
+          "order": "count",
+          "style": {
+            "font-size": "10pt"
+          },
+          "donut": false,
+          "tilt": false,
+          "labels": true,
+          "arrangement": "horizontal",
+          "chart": "bar",
+          "counter_pos": "above",
+          "spyable": true,
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ]
+          },
+          "tmode": "terms",
+          "tstat": "total",
+          "valuefield": "",
+          "title": "Threats by Country"
+        }
+      ],
+      "notice": false
+    },
+    {
+      "title": "Search Results",
+      "height": "550px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "error": false,
+          "span": 12,
+          "editable": true,
+          "type": "table",
+          "loadingEditor": false,
+          "size": 100,
+          "pages": 5,
+          "offset": 0,
+          "sort": [
+            "_score",
+            "desc"
+          ],
+          "overflow": "min-height",
+          "fields": [
+            "source",
+            "source_info",
+            "data_type",
+            "severity",
+            "country",
+            "source_type",
+            "feed_src"
+          ],
+          "highlight": [],
+          "sortable": true,
+          "header": true,
+          "paging": true,
+          "field_list": false,
+          "all_fields": false,
+          "trimFactor": 300,
+          "localTime": false,
+          "timeField": "@timestamp",
+          "spyable": true,
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ]
+          },
+          "style": {
+            "font-size": "9pt"
+          },
+          "normTimes": true,
+          "title": "Search Results"
+        }
+      ],
+      "notice": false
+    }
+  ],
+  "editable": true,
+  "failover": false,
+  "index": {
+    "interval": "none",
+    "pattern": "[logstash-]YYYY.MM.DD",
+    "default": "threatelligence",
+    "warm_fields": false
+  },
+  "style": "light",
+  "panel_hints": true,
+  "pulldowns": [
+    {
+      "type": "query",
+      "collapse": false,
+      "notice": false,
+      "enable": true,
+      "query": "*",
+      "pinned": true,
+      "history": [
+        "*"
+      ],
+      "remember": 10
+    },
+    {
+      "type": "filtering",
+      "collapse": false,
+      "notice": true,
+      "enable": true
+    }
+  ],
+  "nav": [
+    {
+      "type": "timepicker",
+      "collapse": false,
+      "notice": false,
+      "enable": false,
+      "status": "Stable",
+      "time_options": [
+        "5m",
+        "15m",
+        "1h",
+        "6h",
+        "12h",
+        "24h",
+        "2d",
+        "7d",
+        "30d"
+      ],
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "timefield": "@timestamp"
+    }
+  ],
+  "loader": {
+    "save_gist": false,
+    "save_elasticsearch": true,
+    "save_local": true,
+    "save_default": true,
+    "save_temp": true,
+    "save_temp_ttl_enable": true,
+    "save_temp_ttl": "30d",
+    "load_gist": false,
+    "load_elasticsearch": true,
+    "load_elasticsearch_size": 20,
+    "load_local": false,
+    "hide": false
+  },
+  "refresh": false
+}
+
