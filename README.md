@@ -14,5 +14,8 @@ I have made made it very easy to add your own custom feeds to Threatelligence, a
 
 
 
+Blog entry about it:
+
+http://infosecscapes.blogspot.com/2014/06/threatelligence.html
 
 
